@@ -12,7 +12,10 @@ const Content = () => {
             All tools here make your life easy and privacy will be protected all
             times.
           </h3>
-          <a href="#" className="btn btn-primary input-block-level mt-5 px-5">
+          <a
+            href="www.google.com"
+            className="btn btn-primary input-block-level mt-5 px-5"
+          >
             Explore All Tools
           </a>
         </div>
