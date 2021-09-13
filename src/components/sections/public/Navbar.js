@@ -1,6 +1,5 @@
 import React from "react";
 import "./Navbar.css";
-import { Link } from "react-router-dom";
 import { WiDayLightning } from "react-icons/wi";
 import Shiva from "../../../images/shiva.jpeg";
 
@@ -45,17 +44,17 @@ const Navbar = () => {
             style={{ justifyContent: "flex-end", width: "100%" }}
           >
             <li class="nav-item pe-2">
-              <a class="nav-link navItems" aria-current="page" href="#">
+              <a class="nav-link navItems" aria-current="page" href="www.google.com">
                 Home
               </a>
             </li>
             <li class="nav-item pe-2">
-              <a class="nav-link navItems" aria-current="page" href="#">
+              <a class="nav-link navItems" aria-current="page" href="www.google.com">
                 Login
               </a>
             </li>
             <li class="nav-item pe-2">
-              <a class="nav-link navItems" aria-current="page" href="#">
+              <a class="nav-link navItems" aria-current="page" href="www.google.com">
                 Contact Us
               </a>
             </li>
