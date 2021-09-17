@@ -3,6 +3,8 @@ import { Document, Page } from "react-pdf/dist/esm/entry.webpack";
 // import { Page as RendPage, Text } from '@react-pdf/renderer';
 import { FaRegWindowClose } from "react-icons/fa";
 import { BsPlusSquareFill } from "react-icons/bs";
+import { pdfjs } from "react-pdf";
+pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
 
 const PdfContent = (props) => {
   let pdfWidth = 700;
