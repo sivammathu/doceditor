@@ -1,16 +1,22 @@
 import React from "react";
 import Navbar from "./components/sections/public/Navbar";
-import Card from "./components/sections/home/Card";
-import Content from "./components/sections/home/Content";
+import Home from "./components/sections/home/Home";
+import { Switch, Route, Redirect } from "react-router";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.min.js";
+import Pdfviewer from "./components/sections/pdfmerger/PDFViewer";
+import ImageCompress from "./components/sections/image/ImageCompress";
 
 const App = () => {
   return (
     <div>
       <Navbar />
-      <Content />
-      <Card />
+      <Switch>
+        <Route path="/" exact component={Home} />
+        <Route path="/pdfmerger" exact component={Pdfviewer} />
+        <Route path="/imagecompressor" exact component={ImageCompress} />
+        <Redirect to="/" />
+      </Switch>
     </div>
   );
 };

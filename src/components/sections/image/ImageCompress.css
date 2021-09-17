@@ -1,0 +1,43 @@
+.fileuploadgrp,
+.btnCompressGrp {
+  margin: 20px auto;
+  width: 80%;
+  display: flex;
+  padding-left: 30px;
+}
+.imgcom_ip_upload {
+  opacity: 0;
+  order: 3;
+}
+
+.imgcom_frm {
+  margin: 20px auto;
+  box-sizing: border-box;
+}
+
+.lblFileUplod {
+  border: 1px solid #ddd;
+  padding: 10px;
+  order: 1;
+  width: 430px;
+}
+
+.btnCompress {
+  width: 100%;
+  padding: 10px 50px;
+  font-size: 1.2rem;
+  border: 1px solid #007bff;
+  color: white;
+  background-color: #007bff;
+  border-radius: 3px;
+}
+
+.btnUpload_dup {
+  padding: 10px 50px;
+  font-size: 1.2rem;
+  order: 2;
+  border: 1px solid #007bff;
+  color: white;
+  background-color: #007bff;
+  border-radius: 3px;
+}

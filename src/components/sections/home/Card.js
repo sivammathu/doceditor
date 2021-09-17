@@ -1,10 +1,11 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Card = () => {
   return (
-    <div className="container mt-5">
-      <div className="row g-4">
-        <div className="col-md align-items-stretch">
+    <div className="container my-5">
+      <div className="row row-cols-lg-3 row-cols-md-2 g-4">
+        <div className="col-md flex-fill align-items-stretch">
           <div className="card h-100">
             <div
               className="card-title text-center bg-info text-light p-2"
@@ -20,11 +21,13 @@ const Card = () => {
                 page is loaded you can even disconnect internet connection and
                 perform all these operations!!
               </p>
-              <button className="btn btn-outline-primary">Get Started</button>
+              <Link className="btn btn-outline-primary" to="/pdfmerger">
+                Get Started
+              </Link>
             </div>
           </div>
         </div>
-        <div className="col-md align-items-stretch">
+        <div className="col-md flex-fill align-items-stretch">
           <div className="card h-100" style={{ minHeight: "200px" }}>
             <div
               className="card-title text-center bg-info text-light p-2"
@@ -38,11 +41,13 @@ const Card = () => {
                 your data will not be stored anywhere and all compressed files
                 will be cleared from server once it is downloaded.
               </p>
-              <button className="btn btn-outline-primary">Get Started</button>
+              <Link className="btn btn-outline-primary" to="/pdfmerger">
+                Get Started
+              </Link>
             </div>
           </div>
         </div>
-        <div className="col-md align-items-stretch">
+        <div className="col-md flex-fill align-items-stretch">
           <div className="card h-100">
             <div
               className="card-title text-center bg-primary text-light p-2"
@@ -56,9 +61,9 @@ const Card = () => {
                 quality of the image. No files will be saved in server, all will
                 be erased as soon as it is downloaded from application.
               </p>
-              <button className="btn btn-outline-success float-bottom">
+              <Link className="btn btn-outline-primary" to="/imagecompressor">
                 Get Started
-              </button>
+              </Link>
             </div>
           </div>
         </div>

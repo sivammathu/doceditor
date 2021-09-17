@@ -7,7 +7,7 @@ const Content = () => {
     <div className="container mt-5 content_hm">
       <div className="d-md-flex">
         <div className="content_lft_hm pt-lg-5">
-          <h1 className="content_tlt_hm">Lets change doc easy!!</h1>
+          <h1 className="content_tlt_hm">Lets make doc easy!!</h1>
           <h3 className="content_subtlt_hm">
             All tools here make your life easy and privacy will be protected all
             times.

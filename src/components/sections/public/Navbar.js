@@ -1,6 +1,7 @@
 import React from "react";
 import "./Navbar.css";
 import { WiDayLightning } from "react-icons/wi";
+import { Link } from "react-router-dom";
 import Shiva from "../../../images/shiva.jpeg";
 
 const Navbar = () => {
@@ -8,26 +9,27 @@ const Navbar = () => {
     <div
       className="navbar navbar-expand-lg"
       style={{ backgroundColor: "#7852B2" }}
+      // style={{ backgroundColor: "#432372" }}
     >
       <div className="container-fluid">
-        {/* <Link to="/" className="navbar_icon"> */}
-        <WiDayLightning className="d-md-none navbar_logo" />
-        <img
-          src={Shiva}
-          alt=""
-          className="img-fluid rounded d-none d-md-inline me-3"
-          style={{
-            width: "70px",
-            height: "100%",
-          }}
-        />
+        <Link to="/" className="navbar_icon">
+          <WiDayLightning className="d-md-none navbar_logo" />
+          <img
+            src={Shiva}
+            alt=""
+            className="img-fluid rounded d-none d-md-inline me-3"
+            style={{
+              width: "70px",
+              height: "100%",
+            }}
+          />
 
-        <span className="fs-3 page_tlt d-md-none">SDApps</span>
-        <span className="fs-3 page_tlt d-none d-md-inline">SmartDocApps</span>
-        {/* </Link> */}
+          <span className="fs-4 page_tlt d-md-none">SDApps</span>
+          <span className="fs-4 page_tlt d-none d-md-inline">SmartDocApps</span>
+        </Link>
 
         <button
-          class="navbar-toggler custom-toggler"
+          className="navbar-toggler custom-toggler"
           type="button"
           data-bs-toggle="collapse"
           data-bs-target="#navbarSupportedContent"
@@ -35,26 +37,34 @@ const Navbar = () => {
           aria-expanded="false"
           aria-label="Toggle navigation"
         >
-          <span class="navbar-toggler-icon"></span>
+          <span className="navbar-toggler-icon"></span>
         </button>
 
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul
-            class="navbar-nav me-auto mb-2 mb-lg-0 pe-3"
+            className="navbar-nav me-auto mb-2 mb-lg-0 pe-3"
             style={{ justifyContent: "flex-end", width: "100%" }}
           >
-            <li class="nav-item pe-2">
-              <a class="nav-link navItems" aria-current="page" href="www.google.com">
+            <li className="nav-item pe-1">
+              <Link className="nav-link navItems" aria-current="page" to="/">
                 Home
-              </a>
+              </Link>
             </li>
-            <li class="nav-item pe-2">
-              <a class="nav-link navItems" aria-current="page" href="www.google.com">
+            <li className="nav-item pe-1">
+              <a
+                className="nav-link navItems"
+                aria-current="page"
+                href="www.google.com"
+              >
                 Login
               </a>
             </li>
-            <li class="nav-item pe-2">
-              <a class="nav-link navItems" aria-current="page" href="www.google.com">
+            <li className="nav-item pe-1">
+              <a
+                className="nav-link navItems"
+                aria-current="page"
+                href="www.google.com"
+              >
                 Contact Us
               </a>
             </li>

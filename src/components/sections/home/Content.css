@@ -1,9 +1,6 @@
-.content_lft_hm {
-  /* padding-top: 90px; */
-}
 .content_tlt_hm {
   font-family: "Hind Siliguri", sans-serif;
-  font-size: 3.5rem;
+  font-size: 2.7rem;
   margin-bottom: 35px;
   font-weight: 700;
 }
@@ -14,6 +11,7 @@
   font-weight: 600;
   /* letter-spacing: 3px; */
   line-height: 150%;
+  font-size: 1.5rem;
 }
 
 .imgPDF {

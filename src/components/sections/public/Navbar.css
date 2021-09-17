@@ -4,7 +4,7 @@
 
 .navItems {
   color: #ffffff !important;
-  font-size: 1.2rem;
+  font-size: 1rem;
 }
 
 .page_tlt {
@@ -29,4 +29,9 @@
 
 .navbar-toggler:focus {
   box-shadow: 0 0 0 0 !important;
+}
+
+.navbar_icon {
+  text-decoration: none;
+  color: #432372;
 }
