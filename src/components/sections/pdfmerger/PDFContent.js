@@ -24,6 +24,7 @@ const PdfContent = (props) => {
     <Document
       file={props.pdfFile}
       onLoadSuccess={props.onDocumentLoadSuccess}
+      onLoadError={console.error}
       id="documentPDF"
     >
       {props.pdfPages &&

@@ -3,9 +3,7 @@ import axios from "axios";
 import "./ImageCompress.css";
 
 const ImageCompress = () => {
-  const [fileName, setFileName] = useState(
-    "Choose images to upload (PNG, JPG)"
-  );
+  const [fileName, setFileName] = useState("");
   const [file, setFile] = useState(null);
   const refFileUpload = useRef(null);
   const chooseFile = (e) => {
@@ -25,27 +23,48 @@ const ImageCompress = () => {
     formData.append("file", file);
     let resData;
     try {
-      resData = await axios.post("http://localhost:5000/uploads", formData, {
-        headers: {
-          "Content-Type": "multipart/form-data",
-        },
-      });
+      resData = await axios
+        .post("http://localhost:5000/uploads", formData, {
+          responseType: "blob",
+          headers: {
+            "Content-Type": "multipart/form-data",
+            "Response-Type": "blob",
+          },
+        })
+        .then((res) => {
+          console.log(res);
+          const type = res.headers["content-type"];
+          const blob = new Blob([res.data], { type: "image/png" });
+          const link = document.createElement("a");
+          const url = window.URL.createObjectURL(blob);
+          link.href = url;
+          console.log(url);
+          link.setAttribute("download", "merged1");
+          link.click();
+        });
     } catch (err) {
       console.log(err);
     }
     console.log(resData);
   };
+
   return (
     <div className="container">
-      <div className="imgcom_title">Image Compressor</div>
-      <form className="imgcom_frm" encType="multipart/form-data">
+      <form className="imgcom_frm mt-5 pt-5" encType="multipart/form-data">
         <div className="fileuploadgrp">
           <label
             htmlFor="image_uploads"
             onClick={(e) => chooseFile(e)}
             className="lblFileUplod"
+            style={{ flexGrow: 2 }}
           >
-            {fileName}
+            {fileName === "" ? (
+              <span className="d-none d-md-inline">
+                "Choose images to upload (PNG, JPG)"
+              </span>
+            ) : (
+              fileName
+            )}
           </label>
           <input
             type="file"
@@ -56,7 +75,11 @@ const ImageCompress = () => {
             accept=".jpg, .jpeg, .png"
             onChange={(e) => fileHandler(e)}
           />
-          <button className="btnUpload_dup" onClick={(e) => chooseFile(e)}>
+          <button
+            className="btn btn-primary btn-lg"
+            onClick={(e) => chooseFile(e)}
+            style={{ flexGrow: 1 }}
+          >
             Browse
           </button>
         </div>
