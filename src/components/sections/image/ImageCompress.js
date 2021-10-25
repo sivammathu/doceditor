@@ -13,7 +13,7 @@ const ImageCompress = () => {
   };
   const fileHandler = (e) => {
     setError(false)
-    if (e.target.files.length > 1) {
+    if (e.target.files.length > 0) {
       console.log(e.target.files[0].name);
       setFileName(e.target.files[0].name);
       setFile(e.target.files[0]);
