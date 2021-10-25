@@ -1,9 +1,10 @@
 import React, { useState, useRef } from "react";
-import axios from "axios";
 import "./ImageCompress.css";
+import imageCompression from 'browser-image-compression';
 
 const ImageCompress = () => {
   const [fileName, setFileName] = useState("");
+  const [error, setError] = useState(false)
   const [file, setFile] = useState(null);
   const refFileUpload = useRef(null);
   const chooseFile = (e) => {
@@ -11,41 +12,40 @@ const ImageCompress = () => {
     refFileUpload.current.click();
   };
   const fileHandler = (e) => {
-    if (e.target.files) {
+    setError(false)
+    if (e.target.files.length > 1) {
       console.log(e.target.files[0].name);
       setFileName(e.target.files[0].name);
       setFile(e.target.files[0]);
+    }else{
+      setError(true)
     }
   };
   const compressHandlr = async (e) => {
-    e.preventDefault();
-    const formData = new FormData();
-    formData.append("file", file);
-    let resData;
-    try {
-      resData = await axios
-        .post("http://localhost:5000/uploads", formData, {
-          responseType: "blob",
-          headers: {
-            "Content-Type": "multipart/form-data",
-            "Response-Type": "blob",
-          },
-        })
-        .then((res) => {
-          console.log(res);
-          const type = res.headers["content-type"];
-          const blob = new Blob([res.data], { type: "image/png" });
-          const link = document.createElement("a");
-          const url = window.URL.createObjectURL(blob);
-          link.href = url;
-          console.log(url);
-          link.setAttribute("download", "merged1");
-          link.click();
-        });
-    } catch (err) {
-      console.log(err);
+    e.preventDefault();    
+    const options = {
+      maxSizeMB: 1,
+      maxWidthOrHeight: 1920,
+      useWebWorker: true
     }
-    console.log(resData);
+    try {
+      const compressedFile = await imageCompression(file, options);
+      console.log('compressedFile instanceof Blob', compressedFile instanceof Blob); // true
+      console.log(`compressedFile size ${compressedFile.size / 1024 / 1024} MB`); // smaller than maxSizeMB
+  
+      console.log(compressedFile); // write your own logic
+
+      const blob = new Blob([compressedFile], { type: "image/png" });
+      const link = document.createElement("a");
+      const url = window.URL.createObjectURL(blob);
+      link.href = url;
+      console.log(url);
+      link.setAttribute("download", compressedFile.name);
+      link.click();
+    } catch (error) {
+      console.log(error);
+      setError(true)
+    }
   };
 
   return (
@@ -83,6 +83,7 @@ const ImageCompress = () => {
             Browse
           </button>
         </div>
+        {error && <p className="errorP"><span>Unable to process!! Try again!!</span></p> }
         <div className="btnCompressGrp">
           <button className="btnCompress" onClick={(e) => compressHandlr(e)}>
             Compress
