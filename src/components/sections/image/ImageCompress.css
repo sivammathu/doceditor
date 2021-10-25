@@ -1,5 +1,6 @@
 .fileuploadgrp,
-.btnCompressGrp {
+.btnCompressGrp,
+.errorP {
   margin: 20px auto;
   width: 80%;
   display: flex;
@@ -40,4 +41,10 @@
   color: white;
   background-color: #007bff;
   border-radius: 3px;
+}
+
+.errorP{
+  color: red;
+  font-weight: bold;
+  margin-top: -5px;
 }
